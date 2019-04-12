@@ -2,7 +2,7 @@ import pymongo
 import datetime
 
 
-client = pymongo.MongoClient('localhost', 27017)
+client = pymongo.MongoClient('mongodb+srv://gopika16:<password>@cluster0-vxtuu.mongodb.net/test?retryWrites=true')
 db = client.simple_msgq
 
 
