@@ -1,8 +1,9 @@
 import pymongo
 import datetime
+import urllib
 
 
-client = pymongo.MongoClient('mongodb+srv://gopika16:Gopi1697@cluster0-vxtuu.mongodb.net/test?retryWrites=true')
+client = pymongo.MongoClient(urllib.urlencode('mongodb+srv://gopika16:Gopi-1697@cluster0-vxtuu.mongodb.net/test?retryWrites=true'))
 db = client.simple_msgq
 
 
