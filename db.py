@@ -3,7 +3,7 @@ import datetime
 import urllib
 
 
-client = pymongo.MongoClient(urllib.parse.quote('mongodb+srv://gopika16:Gopi-1697@cluster0-vxtuu.mongodb.net/test?retryWrites=true'))
+client = pymongo.MongoClient('mongodb+srv://gopika16:'+urllib.parse.quote('Gopi-1697')+'@cluster0-vxtuu.mongodb.net/test?retryWrites=true'))
 db = client.simple_msgq
 
 
