@@ -11,7 +11,7 @@ def add_message(key, message):
     db.messages.insert_one({
         "text":message,
         "key": key+".",
-        "timestamp": datetime.datetime.today()
+        "timestamp": datetime.datetime.utcnow()
     })
 
 # gets all messages
@@ -42,7 +42,7 @@ def create_session(username, token):
     db.sessions.insert_one({
         "username": username,
         "token" : token,
-        "timestamp" : datetime.datetime.today()
+        "timestamp" : datetime.datetime.utcnow()
     })
 
 def destroy_session(token):
@@ -59,7 +59,7 @@ def get_token(username):
 def check_token_expiry(token):
     token_record = db.sessions.find_one({"token":token})
     print(token_record)
-    if ((datetime.datetime.today() - token_record["timestamp"]).seconds//3600 > 8):
+    if ((datetime.datetime.utcnow() - token_record["timestamp"]).seconds//3600 > 8):
         destroy_session(token)
         return False
     else:
